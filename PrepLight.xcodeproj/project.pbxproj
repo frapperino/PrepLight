@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C0313FD21C2A9B800E5748A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0313FC21C2A9B800E5748A /* ListViewController.swift */; };
 		3C0313FF21C3B96000E5748A /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0313FE21C3B96000E5748A /* Role.swift */; };
+		3C03140121C3CE8100E5748A /* RoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C03140021C3CE8100E5748A /* RoleViewController.swift */; };
 		3C35ACB521C2956700D07921 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35ACB421C2956700D07921 /* AppDelegate.swift */; };
 		3C35ACB721C2956700D07921 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35ACB621C2956700D07921 /* HomeViewController.swift */; };
 		3C35ACBA21C2956700D07921 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C35ACB821C2956700D07921 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		3C0313FC21C2A9B800E5748A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3C0313FE21C3B96000E5748A /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		3C03140021C3CE8100E5748A /* RoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleViewController.swift; sourceTree = "<group>"; };
 		3C35ACB121C2956700D07921 /* PrepLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C35ACB421C2956700D07921 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C35ACB621C2956700D07921 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				3C35ACB421C2956700D07921 /* AppDelegate.swift */,
 				3C35ACB621C2956700D07921 /* HomeViewController.swift */,
 				3C0313FC21C2A9B800E5748A /* ListViewController.swift */,
+				3C03140021C3CE8100E5748A /* RoleViewController.swift */,
 				3C0313FE21C3B96000E5748A /* Role.swift */,
 				3C35ACB821C2956700D07921 /* Main.storyboard */,
 				3C35ACBB21C2956700D07921 /* Assets.xcassets */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C03140121C3CE8100E5748A /* RoleViewController.swift in Sources */,
 				3C35ACB721C2956700D07921 /* HomeViewController.swift in Sources */,
 				3C35ACB521C2956700D07921 /* AppDelegate.swift in Sources */,
 				3C0313FD21C2A9B800E5748A /* ListViewController.swift in Sources */,

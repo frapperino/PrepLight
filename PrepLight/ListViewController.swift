@@ -12,7 +12,7 @@ import UIKit
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var roleTable: UITableView  = {
-       var table =   UITableView()
+        var table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -68,8 +68,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func goToRole(role: Role){
-        if let roleVC = storyboard?.instantiateViewController(withIdentifier: "RoleViewController"){
-            navigationController?.pushViewController(roleVC, animated: true)
-        }
+        let roleVC = self.storyboard?.instantiateViewController(withIdentifier: "RoleViewController") as? RoleViewController
+        roleVC?.currentRole = role
+        navigationController?.pushViewController(roleVC!, animated: true)
+        
     }
 }
