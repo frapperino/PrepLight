@@ -11,5 +11,6 @@ import Foundation
 
 struct Role {
     var title: String
-    var description: String    
+    var description: String
+    var company: String
 }
