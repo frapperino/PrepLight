@@ -1,5 +1,5 @@
 //
-//  ConsultantViewController.swift
+//  RefereeViewController.swift
 //  PrepLight
 //
 //  Created by Fredrik Holmdahl on 2018-12-17.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ConsultantViewController: UIViewController {
-    
+class RefereeViewController: UIViewController {
+
     var titleLabel: UILabel = {
         var label = UILabel()
-        label.text = "Consultant"
+        label.text = "Referee"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -21,15 +21,12 @@ class ConsultantViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-
-        
     }
     
     func setupView(){
-        self.navigationItem.title = "Consultant"
+        self.navigationItem.title = "Referee"
         view.addSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
-
 }

@@ -14,7 +14,6 @@ class RoleViewController: UIViewController {
     
     var descriptionLabel: UILabel = {
         var label = UILabel()
-        label.text = "Hej"
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 18)
@@ -78,17 +77,30 @@ class RoleViewController: UIViewController {
         view.addSubview(clientButton)
         clientButton.topAnchor.constraint(equalTo: consultantButton.bottomAnchor , constant: 10).isActive = true
         clientButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        clientButton.addTarget(self, action: #selector(clientClick), for: .touchUpInside)
         
         view.addSubview(refereeButton)
         refereeButton.topAnchor.constraint(equalTo: clientButton.bottomAnchor , constant: 10).isActive = true
         refereeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        refereeButton.addTarget(self, action: #selector(refereeClick), for: .touchUpInside)
     }
     
     @objc func consultantClick(){
         if let consultantVC =  storyboard?.instantiateViewController(withIdentifier: "ConsultantViewController"){
             self.navigationController?.pushViewController(consultantVC, animated: true)
         }
-        
+    }
+    
+    @objc func clientClick(){
+        if let clientVC =  storyboard?.instantiateViewController(withIdentifier: "ClientViewController"){
+            self.navigationController?.pushViewController(clientVC, animated: true)
+        }
+    }
+    
+    @objc func refereeClick(){
+        if let refereeVC =  storyboard?.instantiateViewController(withIdentifier: "RefereeViewController"){
+            self.navigationController?.pushViewController(refereeVC, animated: true)
+        }
     }
 
 }
