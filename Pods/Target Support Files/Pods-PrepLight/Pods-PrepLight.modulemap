@@ -1,6 +1,0 @@
-framework module Pods_PrepLight {
-  umbrella header "Pods-PrepLight-umbrella.h"
-
-  export *
-  module * { export * }
-}

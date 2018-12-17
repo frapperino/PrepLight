@@ -17,4 +17,7 @@ target 'PrepLight' do
     # Pods for testing
   end
 
+pod 'Firebase/Core'
+pod 'Firebase/Database'
+
 end

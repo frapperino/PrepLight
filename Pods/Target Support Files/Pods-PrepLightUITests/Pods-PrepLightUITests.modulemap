@@ -1,6 +1,0 @@
-framework module Pods_PrepLightUITests {
-  umbrella header "Pods-PrepLightUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
