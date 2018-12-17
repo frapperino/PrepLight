@@ -22,7 +22,7 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 *.xcuserdata
-PrepLight/GoogleService-Info.plist
+*/GoogleService-Info.plist
 Pods/
 
 ## Obj-C/Swift specific
