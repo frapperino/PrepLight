@@ -21,8 +21,8 @@
 		3C35ACBF21C2956700D07921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C35ACBD21C2956700D07921 /* LaunchScreen.storyboard */; };
 		3C35ACCA21C2956700D07921 /* PrepLightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35ACC921C2956700D07921 /* PrepLightTests.swift */; };
 		3C35ACD521C2956700D07921 /* PrepLightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35ACD421C2956700D07921 /* PrepLightUITests.swift */; };
-		3CE9A60021C7C5CC0069FBA5 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE9A5FF21C7C5CC0069FBA5 /* Requester.swift */; };
 		3CE9A60221C7E7280069FBA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CE9A60121C7E7280069FBA5 /* GoogleService-Info.plist */; };
+		3CE9A60421C9006D0069FBA5 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE9A60321C9006D0069FBA5 /* ImageHelper.swift */; };
 		62ED07F44DAEEA1885F4BD25 /* Pods_PrepLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3365FF3D39369D3D8501CD9A /* Pods_PrepLight.framework */; };
 		8C04129E12239954F0FA4722 /* Pods_PrepLightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12EF7DF1DB5FCAABFC36E37 /* Pods_PrepLightTests.framework */; };
 		C25B4D4FC3ED60835537B7B4 /* Pods_PrepLightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F786D86FEAA6A2E19C8CBCBA /* Pods_PrepLightUITests.framework */; };
@@ -69,8 +69,8 @@
 		3C35ACD021C2956700D07921 /* PrepLightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrepLightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C35ACD421C2956700D07921 /* PrepLightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepLightUITests.swift; sourceTree = "<group>"; };
 		3C35ACD621C2956700D07921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CE9A5FF21C7C5CC0069FBA5 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		3CE9A60121C7E7280069FBA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3CE9A60321C9006D0069FBA5 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		79CEAAD3A5D1B9864E651C78 /* Pods-PrepLightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepLightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrepLightUITests/Pods-PrepLightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		89E9577D44B4851032707691 /* Pods-PrepLight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepLight.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrepLight/Pods-PrepLight.release.xcconfig"; sourceTree = "<group>"; };
 		A12EF7DF1DB5FCAABFC36E37 /* Pods_PrepLightTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrepLightTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,10 +138,10 @@
 				3C03140221C3DDA300E5748A /* AssignmentCell.swift */,
 				3C03140021C3CE8100E5748A /* RoleViewController.swift */,
 				3C0313FE21C3B96000E5748A /* Role.swift */,
-				3CE9A5FF21C7C5CC0069FBA5 /* Requester.swift */,
 				3C03140421C7A9D500E5748A /* ConsultantViewController.swift */,
 				3C03140621C7ADC600E5748A /* ClientViewController.swift */,
 				3C03140821C7AE9900E5748A /* RefereeViewController.swift */,
+				3CE9A60321C9006D0069FBA5 /* ImageHelper.swift */,
 				3C35ACB821C2956700D07921 /* Main.storyboard */,
 				3C35ACBB21C2956700D07921 /* Assets.xcassets */,
 				3C35ACBD21C2956700D07921 /* LaunchScreen.storyboard */,
@@ -333,6 +333,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PrepLight/Pods-PrepLight-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -341,6 +342,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -424,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C03140321C3DDA300E5748A /* AssignmentCell.swift in Sources */,
+				3CE9A60421C9006D0069FBA5 /* ImageHelper.swift in Sources */,
 				3C03140521C7A9D500E5748A /* ConsultantViewController.swift in Sources */,
 				3C03140121C3CE8100E5748A /* RoleViewController.swift in Sources */,
 				3C03140721C7ADC600E5748A /* ClientViewController.swift in Sources */,
@@ -431,7 +434,6 @@
 				3C35ACB521C2956700D07921 /* AppDelegate.swift in Sources */,
 				3C0313FD21C2A9B800E5748A /* ListViewController.swift in Sources */,
 				3C03140921C7AE9900E5748A /* RefereeViewController.swift in Sources */,
-				3CE9A60021C7C5CC0069FBA5 /* Requester.swift in Sources */,
 				3C0313FF21C3B96000E5748A /* Role.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

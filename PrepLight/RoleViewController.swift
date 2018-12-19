@@ -7,16 +7,51 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class RoleViewController: UIViewController {
 
     var currentRole: Role?
+    var assignmentParagraphs = [String]()
     
-    var descriptionLabel: UILabel = {
+    var outerScrollView: UIScrollView = {
+       let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    var verticalStackView: UIStackView = {
+       var stackView = UIStackView()
+        stackView.alignment = .leading
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    var horizontalStackView: UIStackView = {
+        var stackView = UIStackView()
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.axis = .horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    var companyIcon: UIImageView = {
+        var image = UIImageView()
+        image.image = UIImage(named: "default")
+        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    var company: UILabel = {
         var label = UILabel()
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.systemFont(ofSize: 22)
         return label
     }()
     
@@ -55,33 +90,78 @@ class RoleViewController: UIViewController {
     }
     
     func setupView(){
+        
         if let role = currentRole {
-            descriptionLabel.text = role.description
+            let storageRef = Storage.storage().reference()
+            if let url = role.imageName {
+                let imageRef = storageRef.child(url)
+                imageRef.downloadURL { url, error in
+                    if error != nil{
+                        print(error as Any)
+                        return
+                    }else{
+                        if let imgurl = url{
+                            self.companyIcon.loadImageUsingCacheWithUrlString(urlString: imgurl)
+                        }
+                    }
+                }
+            }
+
+            self.company.text = role.company
             self.navigationItem.title = role.title
+            
+            view.addSubview(outerScrollView)
+            outerScrollView.addSubview(verticalStackView)
+            
+            verticalStackView.addArrangedSubview(companyIcon)
+            verticalStackView.addArrangedSubview(company)
+            if let dictionary = role.content?.value(forKey: "paragraphs") as? NSDictionary{
+                createParagraphs(paragraphs: dictionary)
+            }
+            verticalStackView.addArrangedSubview(selectRoleLabel)
+            verticalStackView.addArrangedSubview(horizontalStackView)
+            horizontalStackView.addArrangedSubview(consultantButton)
+            horizontalStackView.addArrangedSubview(clientButton)
+            horizontalStackView.addArrangedSubview(refereeButton)
+            
+            outerScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            outerScrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            outerScrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            outerScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            
+            verticalStackView.topAnchor.constraint(equalTo: outerScrollView.topAnchor).isActive = true
+            verticalStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+            verticalStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+            verticalStackView.bottomAnchor.constraint(equalTo: outerScrollView.bottomAnchor).isActive = true
+            
+            companyIcon.topAnchor.constraint(equalTo: outerScrollView.topAnchor, constant: 20).isActive = true
+            companyIcon.leftAnchor.constraint(equalTo: verticalStackView.leftAnchor).isActive = true
+            companyIcon.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            companyIcon.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            
+            horizontalStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+            horizontalStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+            
+            consultantButton.addTarget(self, action: #selector(consultantClick), for: .touchUpInside)
+            clientButton.addTarget(self, action: #selector(clientClick), for: .touchUpInside)
+            refereeButton.addTarget(self, action: #selector(refereeClick), for: .touchUpInside)
         }
+    }
+    
+    func createParagraphs(paragraphs: NSDictionary){
         
-        view.addSubview(descriptionLabel)
-        descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: (navigationController?.navigationBar.frame.height)! + 30).isActive = true
-        
-        view.addSubview(selectRoleLabel)
-        selectRoleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        selectRoleLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30).isActive = true
-        
-        view.addSubview(consultantButton)
-        consultantButton.topAnchor.constraint(equalTo: selectRoleLabel.bottomAnchor , constant: 10).isActive = true
-        consultantButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        consultantButton.addTarget(self, action: #selector(consultantClick), for: .touchUpInside)
-        
-        view.addSubview(clientButton)
-        clientButton.topAnchor.constraint(equalTo: consultantButton.bottomAnchor , constant: 10).isActive = true
-        clientButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        clientButton.addTarget(self, action: #selector(clientClick), for: .touchUpInside)
-        
-        view.addSubview(refereeButton)
-        refereeButton.topAnchor.constraint(equalTo: clientButton.bottomAnchor , constant: 10).isActive = true
-        refereeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        refereeButton.addTarget(self, action: #selector(refereeClick), for: .touchUpInside)
+        for paragraph in paragraphs {
+            let paragraphLabel: UILabel = {
+                let label = UILabel()
+                label.numberOfLines = 0
+                label.translatesAutoresizingMaskIntoConstraints = false
+                label.font = UIFont.systemFont(ofSize: 16)
+                return label
+            }()
+            paragraphLabel.text = paragraph.value as? String
+//            paragraphLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width-20).isActive = true
+            verticalStackView.addArrangedSubview(paragraphLabel)
+        }
     }
     
     @objc func consultantClick(){

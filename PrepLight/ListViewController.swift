@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -52,20 +53,16 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func setupTable(){
         roleTable = UITableView(frame: UIScreen.main.bounds, style: UITableView.Style.plain)
         roleTable.allowsMultipleSelection = false
-        roleTable.rowHeight = 100
+        roleTable.rowHeight = 80
         self.roleTable.separatorStyle = .none
     }
     
     func setupRows(){
         dbref.child("assignments").observeSingleEvent(of: .value, with: { (snapshot) in
             if let values = snapshot.value as? NSDictionary{
-                print(values)
                 for value in values {
-                    print(value)
                     let role = Role(assignment: value.value as! NSDictionary)
-                    print(role)
                     self.assignments.append(role)
-                    print(self.assignments)
                 }
                 self.roleTable.reloadData()
             }
@@ -77,7 +74,22 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let roleCell = tableView.dequeueReusableCell(withIdentifier: "roleCell", for: indexPath) as! AssignmentCell
         let role = self.assignments[indexPath.row]
-        print(role)
+        
+        let storageRef = Storage.storage().reference()
+        if let url = role.imageName {
+            let imageRef = storageRef.child(url)
+            imageRef.downloadURL { url, error in
+                if error != nil{
+                    print(error as Any)
+                    return
+                }else{
+                    if let imgurl = url{
+                        roleCell.imageIcon.loadImageUsingCacheWithUrlString(urlString: imgurl)
+                    }
+                }
+            }
+        }
+        
         roleCell.assignmentTitle.text = role.title
         roleCell.assignmentCompany.text = role.company
         return roleCell

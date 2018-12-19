@@ -11,8 +11,9 @@ import Foundation
 
 struct Role {
     var title: String?
-    var description: String?
     var company: String?
+    var imageName: String?
+    var content: NSDictionary?
     var questions: NSDictionary?
     var reminders: NSDictionary?
     var checklist: NSDictionary?
@@ -22,8 +23,8 @@ struct Role {
             self.title = roleTitle
         }
         
-        if let roleDescription = assignment.value(forKey: "description") as? String{
-            self.description = roleDescription
+        if let roleDescription = assignment.value(forKey: "content") as? NSDictionary{
+            self.content = roleDescription
         }
         
         if let roleCompany = assignment.value(forKey: "company") as? String{
@@ -37,8 +38,13 @@ struct Role {
         if let roleReminders = assignment.value(forKey: "reminders") as? NSDictionary{
             self.reminders = roleReminders
         }
+        
         if let roleChecklist = assignment.value(forKey: "checklist") as? NSDictionary {
             self.checklist = roleChecklist
+        }
+        
+        if let roleImage = assignment.value(forKey: "imageName") as? String{
+            self.imageName = roleImage
         }
     }
 }
