@@ -18,17 +18,22 @@ struct Role {
     var reminders: NSDictionary?
     var checklist: NSDictionary?
     
+    
     init(assignment: NSDictionary) {
         if let roleTitle = assignment.value(forKey: "title") as? String{
             self.title = roleTitle
         }
         
-        if let roleDescription = assignment.value(forKey: "content") as? NSDictionary{
-            self.content = roleDescription
-        }
-        
         if let roleCompany = assignment.value(forKey: "company") as? String{
             self.company = roleCompany
+        }
+        
+        if let roleImage = assignment.value(forKey: "imageName") as? String{
+            self.imageName = roleImage
+        }
+        
+        if let roleDescription = assignment.value(forKey: "content") as? NSDictionary{
+            self.content = roleDescription
         }
         
         if let roleQuestions = assignment.value(forKey: "questions") as? NSDictionary{
@@ -43,8 +48,6 @@ struct Role {
             self.checklist = roleChecklist
         }
         
-        if let roleImage = assignment.value(forKey: "imageName") as? String{
-            self.imageName = roleImage
-        }
+     
     }
 }

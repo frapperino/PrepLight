@@ -14,23 +14,23 @@ class RoleViewController: UIViewController {
     var currentRole: Role?
     var assignmentParagraphs = [String]()
     
-    var outerScrollView: UIScrollView = {
+    let outerScrollView: UIScrollView = {
        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
-    var verticalStackView: UIStackView = {
-       var stackView = UIStackView()
+    let verticalStackView: UIStackView = {
+       let stackView = UIStackView()
         stackView.alignment = .leading
         stackView.axis = .vertical
-        stackView.spacing = 20
+        stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
-    var horizontalStackView: UIStackView = {
-        var stackView = UIStackView()
+    let horizontalStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.axis = .horizontal
@@ -38,8 +38,8 @@ class RoleViewController: UIViewController {
         return stackView
     }()
     
-    var companyIcon: UIImageView = {
-        var image = UIImageView()
+    let companyIcon: UIImageView = {
+        let image = UIImageView()
         image.image = UIImage(named: "default")
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
@@ -47,40 +47,45 @@ class RoleViewController: UIViewController {
         return image
     }()
     
-    var company: UILabel = {
-        var label = UILabel()
+    let company: UILabel = {
+        let label = UILabel()
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 22)
         return label
     }()
     
-    var consultantButton: UIButton = {
-       var button = UIButton(type: .system)
+    let consultantButton: UIButton = {
+       let button = UIButton(type: .system)
         button.setTitle("Consultant", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    var clientButton: UIButton = {
-        var button = UIButton(type: .system)
+    let clientButton: UIButton = {
+        let button = UIButton(type: .system)
         button.setTitle("Client", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    var refereeButton: UIButton = {
-        var button = UIButton(type: .system)
+    let refereeButton: UIButton = {
+        let button = UIButton(type: .system)
         button.setTitle("Referee", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    var selectRoleLabel: UILabel = {
-       var label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    let selectRoleLabel: UILabel = {
+       let label = UILabel()
         label.text = "Select your role for the workshop:"
         label.font = UIFont.systemFont(ofSize: 14)
+        return label
+    }()
+    
+    let outro: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
     
@@ -106,6 +111,10 @@ class RoleViewController: UIViewController {
                     }
                 }
             }
+            
+            ac juni 2019 41 -> 30
+            c januari 2020 43 + 2-5 -> 33,5
+            src januari 2021 47 + 4(5)-10 40
 
             self.company.text = role.company
             self.navigationItem.title = role.title
@@ -118,6 +127,13 @@ class RoleViewController: UIViewController {
             if let dictionary = role.content?.value(forKey: "paragraphs") as? NSDictionary{
                 createParagraphs(paragraphs: dictionary)
             }
+            if let dictionary = role.content?.value(forKey: "checklists") as? NSDictionary{
+                createCheckLists(lists: dictionary)
+            }
+            if let roleOutro = role.content?.value(forKey: "outro") as? String{
+                outro.text = roleOutro
+            }
+            verticalStackView.addArrangedSubview(outro)
             verticalStackView.addArrangedSubview(selectRoleLabel)
             verticalStackView.addArrangedSubview(horizontalStackView)
             horizontalStackView.addArrangedSubview(consultantButton)
@@ -141,6 +157,7 @@ class RoleViewController: UIViewController {
             
             horizontalStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
             horizontalStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+            horizontalStackView.bottomAnchor.constraint(equalTo: outerScrollView.bottomAnchor, constant: -20).isActive = true
             
             consultantButton.addTarget(self, action: #selector(consultantClick), for: .touchUpInside)
             clientButton.addTarget(self, action: #selector(clientClick), for: .touchUpInside)
@@ -155,12 +172,52 @@ class RoleViewController: UIViewController {
                 let label = UILabel()
                 label.numberOfLines = 0
                 label.translatesAutoresizingMaskIntoConstraints = false
-                label.font = UIFont.systemFont(ofSize: 16)
+                label.font = UIFont.systemFont(ofSize: 14)
                 return label
             }()
             paragraphLabel.text = paragraph.value as? String
-//            paragraphLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width-20).isActive = true
             verticalStackView.addArrangedSubview(paragraphLabel)
+        }
+    }
+    
+    func createCheckLists(lists: NSDictionary){
+        for list in lists{
+            let vStackView: UIStackView = {
+               let stackview = UIStackView()
+                stackview.axis = .vertical
+                stackview.alignment = .leading
+                stackview.spacing = 0
+                stackview.translatesAutoresizingMaskIntoConstraints = false
+                return stackview
+            }()
+            verticalStackView.addArrangedSubview(vStackView)
+            if let checklist = list.value as? NSDictionary{
+                let title: UILabel = {
+                    let label = UILabel()
+                    label.numberOfLines = 0
+                    label.font = UIFont.boldSystemFont(ofSize: 16)
+                    return label
+                }()
+                title.text = checklist.value(forKey: "title") as? String
+                vStackView.addArrangedSubview(title)
+                if let bullets = checklist.value(forKey: "bullets") as? NSDictionary {
+                    for bullet in bullets {
+                        
+                        let bulletPoint: String = "\u{2022}"
+                        let formattedString: String = "\(bulletPoint) \(bullet.value)"
+                        
+                        let bullet: UILabel = {
+                            let label = UILabel()
+                            label.numberOfLines = 0
+                            label.text = formattedString
+                            label.font = UIFont.systemFont(ofSize: 14)
+                            return label
+                        }()
+                        vStackView.addArrangedSubview(bullet)
+                    }
+                }
+                
+            }
         }
     }
     
