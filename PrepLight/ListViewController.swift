@@ -52,7 +52,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setupTable(){
         roleTable = UITableView(frame: UIScreen.main.bounds, style: UITableView.Style.plain)
-        roleTable.allowsMultipleSelection = false
         roleTable.rowHeight = 80
         self.roleTable.separatorStyle = .none
     }

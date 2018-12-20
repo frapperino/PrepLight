@@ -38,6 +38,25 @@ class RoleViewController: UIViewController {
         return stackView
     }()
     
+    let tagsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    let companyStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.axis = .horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     let companyIcon: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "default")
@@ -88,11 +107,12 @@ class RoleViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
+
     
     func setupView(){
         
@@ -111,19 +131,16 @@ class RoleViewController: UIViewController {
                     }
                 }
             }
-            
-            ac juni 2019 41 -> 30
-            c januari 2020 43 + 2-5 -> 33,5
-            src januari 2021 47 + 4(5)-10 40
 
             self.company.text = role.company
             self.navigationItem.title = role.title
             
             view.addSubview(outerScrollView)
             outerScrollView.addSubview(verticalStackView)
+            verticalStackView.addArrangedSubview(companyStackView)
             
-            verticalStackView.addArrangedSubview(companyIcon)
-            verticalStackView.addArrangedSubview(company)
+            companyStackView.addArrangedSubview(companyIcon)
+            companyStackView.addArrangedSubview(company)
             if let dictionary = role.content?.value(forKey: "paragraphs") as? NSDictionary{
                 createParagraphs(paragraphs: dictionary)
             }
@@ -134,6 +151,9 @@ class RoleViewController: UIViewController {
                 outro.text = roleOutro
             }
             verticalStackView.addArrangedSubview(outro)
+            if let roleTags = role.content?.value(forKey: "tags") as? NSDictionary{
+                createTags(tags: roleTags)
+            }
             verticalStackView.addArrangedSubview(selectRoleLabel)
             verticalStackView.addArrangedSubview(horizontalStackView)
             horizontalStackView.addArrangedSubview(consultantButton)
@@ -149,15 +169,19 @@ class RoleViewController: UIViewController {
             verticalStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
             verticalStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
             verticalStackView.bottomAnchor.constraint(equalTo: outerScrollView.bottomAnchor).isActive = true
-            
+
             companyIcon.topAnchor.constraint(equalTo: outerScrollView.topAnchor, constant: 20).isActive = true
-            companyIcon.leftAnchor.constraint(equalTo: verticalStackView.leftAnchor).isActive = true
+            companyIcon.leftAnchor.constraint(equalTo: outerScrollView.leftAnchor, constant: 20).isActive = true
             companyIcon.widthAnchor.constraint(equalToConstant: 50).isActive = true
             companyIcon.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            
+
+            company.topAnchor.constraint(equalTo: outerScrollView.topAnchor, constant: 20).isActive = true
+            company.leftAnchor.constraint(equalTo: companyIcon.rightAnchor, constant: 10).isActive = true
+
             horizontalStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
             horizontalStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-            horizontalStackView.bottomAnchor.constraint(equalTo: outerScrollView.bottomAnchor, constant: -20).isActive = true
+            horizontalStackView.bottomAnchor.constraint(equalTo: outerScrollView.bottomAnchor, constant: -20).isActive = true //triggers a layout constraint error, but works as intended
+            horizontalStackView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
             
             consultantButton.addTarget(self, action: #selector(consultantClick), for: .touchUpInside)
             clientButton.addTarget(self, action: #selector(clientClick), for: .touchUpInside)
@@ -216,9 +240,24 @@ class RoleViewController: UIViewController {
                         vStackView.addArrangedSubview(bullet)
                     }
                 }
-                
             }
         }
+    }
+    
+    func createTags(tags: NSDictionary){
+        for tag in tags{
+            let tag: UILabel = {
+                let label = UILabel()
+                label.textColor = UIColor.black
+                label.text = tag.value as? String
+                label.textColor = UIColor.darkGray
+                label.translatesAutoresizingMaskIntoConstraints = false
+                label.font = UIFont.systemFont(ofSize: 14)
+                return label
+            }()
+            tagsStackView.addArrangedSubview(tag)
+        }
+        verticalStackView.addArrangedSubview(tagsStackView)
     }
     
     @objc func consultantClick(){
@@ -228,7 +267,8 @@ class RoleViewController: UIViewController {
     }
     
     @objc func clientClick(){
-        if let clientVC =  storyboard?.instantiateViewController(withIdentifier: "ClientViewController"){
+        if let clientVC =  storyboard?.instantiateViewController(withIdentifier: "ClientViewController") as? ClientViewController{
+            clientVC.currentRole = self.currentRole
             self.navigationController?.pushViewController(clientVC, animated: true)
         }
     }

@@ -49,7 +49,7 @@ class AssignmentCell: UITableViewCell {
         image.image = UIImage(named: "default")
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
