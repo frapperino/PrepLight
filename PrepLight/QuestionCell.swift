@@ -30,8 +30,7 @@ class QuestionCell: UITableViewCell {
     //TODO: add fade in and out animation when selecting and deselecting
     let checkButton: UIButton = {
         var button = UIButton()
-        button.setImage(UIImage(named: "arrow"), for: .normal) //empty circle
-        button.setImage(UIImage(named: "default"), for: .highlighted) //Grey circle
+        button.setImage(UIImage(named: "checkbox-empty"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -39,9 +38,9 @@ class QuestionCell: UITableViewCell {
     var isChecked: Bool = false {
         didSet{
             if isChecked == true {
-                checkButton.setImage(UIImage(named: "default"), for: .normal)  //filled circle with checkmark
+                checkButton.setImage(UIImage(named: "checkbox-selected"), for: .normal)
             } else {
-                checkButton.setImage(UIImage(named: "arrow"), for: .normal)  //empty circle - same as init image
+                checkButton.setImage(UIImage(named: "checkbox-empty"), for: .normal)
             }
         }
     }
@@ -53,12 +52,14 @@ class QuestionCell: UITableViewCell {
         
         checkButton.leftAnchor.constraint(lessThanOrEqualTo: self.leftAnchor, constant: 20).isActive = true
         checkButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        checkButton.widthAnchor.constraint(equalToConstant: 15).isActive = true
-        checkButton.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        checkButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        checkButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        checkButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
         
-        question.leftAnchor.constraint(equalTo: checkButton.rightAnchor, constant: 10).isActive = true
         question.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        question.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -65).isActive = true        
+        question.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        question.leftAnchor.constraint(equalTo: checkButton.rightAnchor, constant: 10).isActive = true
+        question.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -65).isActive = true
         
         checkButton.addTarget(self, action: #selector(checkmarkPressed), for: .touchUpInside)
         

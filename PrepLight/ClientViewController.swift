@@ -41,6 +41,10 @@ class ClientViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.questions.append(question.value as! String)
             }
         }
+        
+        questionTable.rowHeight = UITableView.automaticDimension
+        questionTable.estimatedRowHeight = 100
+        
         setupView()                
     }
     
@@ -51,12 +55,11 @@ class ClientViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! QuestionCell
         cell.question.text = questions[indexPath.row]
-        cell.heightAnchor.constraint(equalToConstant: )
+        
+        cell.contentView.setNeedsLayout()
+        cell.contentView.layoutIfNeeded()
+        
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
     }
     
     func setupView(){
@@ -70,7 +73,9 @@ class ClientViewController: UIViewController, UITableViewDelegate, UITableViewDa
         questionTable.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         questionTable.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         questionTable.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        questionTable.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        questionTable.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+        
     }
     
 }
