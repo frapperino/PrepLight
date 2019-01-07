@@ -8,8 +8,13 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseStorage
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var dbref = Database.database().reference()
     
     var roleTable: UITableView  = {
         var table = UITableView()
@@ -17,30 +22,16 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         return table
     }()
     
-    var role1 = Role(title:"iOS Developer", description: "Are you our next developer?", company: "Spotify")
-    var role2 = Role(title:"Product owner", description: "Looking for a PO", company: "Bonnier")
-    var roles: [Role] = []
+    var assignments: [Role] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.hidesBackButton = true
         self.navigationItem.title = "Assignments"
-
+        
         setupTable()
         setupRows()
-    }
-    
-    func setupTable(){
-        roleTable = UITableView(frame: UIScreen.main.bounds, style: UITableView.Style.plain)
-        roleTable.allowsMultipleSelection = false
-        roleTable.rowHeight = 100
-        self.roleTable.separatorStyle = .none
-    }
-    
-    func setupRows(){
-        roles.append(role1)
-        roles.append(role2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,9 +50,44 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         roleTable.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
+    func setupTable(){
+        roleTable = UITableView(frame: UIScreen.main.bounds, style: UITableView.Style.plain)
+        roleTable.rowHeight = 80
+        self.roleTable.separatorStyle = .none
+    }
+    
+    func setupRows(){
+        dbref.child("assignments").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let values = snapshot.value as? NSDictionary{
+                for value in values {
+                    let role = Role(assignment: value.value as! NSDictionary)
+                    self.assignments.append(role)
+                }
+                self.roleTable.reloadData()
+            }
+        }){ (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let roleCell = tableView.dequeueReusableCell(withIdentifier: "roleCell", for: indexPath) as! AssignmentCell
-        let role = self.roles[indexPath.row]
+        let role = self.assignments[indexPath.row]
+        
+        let storageRef = Storage.storage().reference()
+        if let url = role.imageName {
+            let imageRef = storageRef.child(url)
+            imageRef.downloadURL { url, error in
+                if error != nil{
+                    print(error as Any)
+                    return
+                }else{
+                    if let imgurl = url{
+                        roleCell.imageIcon.loadImageUsingCacheWithUrlString(urlString: imgurl)
+                    }
+                }
+            }
+        }
         
         roleCell.assignmentTitle.text = role.title
         roleCell.assignmentCompany.text = role.company
@@ -69,12 +95,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return roles.count
+        let assignmentCount = assignments.count
+        return assignmentCount
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedRole = roles[indexPath.row]
+        let selectedRole = assignments[indexPath.row]
         goToRole(role: selectedRole)
+        
     }
     
     func goToRole(role: Role){
