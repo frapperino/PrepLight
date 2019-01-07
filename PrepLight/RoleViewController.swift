@@ -38,16 +38,6 @@ class RoleViewController: UIViewController {
         return stackView
     }()
     
-    let tagsStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 10
-        stackView.axis = .horizontal
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
     let companyStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .center
@@ -112,7 +102,6 @@ class RoleViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-
     
     func setupView(){
         
@@ -245,23 +234,29 @@ class RoleViewController: UIViewController {
     }
     
     func createTags(tags: NSDictionary){
+        
+        var fulString = ""
+        
         for tag in tags{
-            let tag: UILabel = {
-                let label = UILabel()
-                label.textColor = UIColor.black
-                label.text = tag.value as? String
-                label.textColor = UIColor.darkGray
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.font = UIFont.systemFont(ofSize: 14)
-                return label
-            }()
-            tagsStackView.addArrangedSubview(tag)
+            fulString += "\(tag.value) "
         }
-        verticalStackView.addArrangedSubview(tagsStackView)
+        
+        let tag: UILabel = {
+            let label = UILabel()
+            label.text = fulString
+            label.numberOfLines = 0
+            label.textColor = UIColor.darkGray
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.font = UIFont.systemFont(ofSize: 14)
+            return label
+        }()
+        verticalStackView.addArrangedSubview(tag)
+        
     }
     
     @objc func consultantClick(){
-        if let consultantVC =  storyboard?.instantiateViewController(withIdentifier: "ConsultantViewController"){
+        if let consultantVC =  storyboard?.instantiateViewController(withIdentifier: "ConsultantViewController") as? ConsultantViewController{
+            consultantVC.currentRole = self.currentRole
             self.navigationController?.pushViewController(consultantVC, animated: true)
         }
     }

@@ -24,6 +24,7 @@
 		3CE9A60221C7E7280069FBA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CE9A60121C7E7280069FBA5 /* GoogleService-Info.plist */; };
 		3CE9A60421C9006D0069FBA5 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE9A60321C9006D0069FBA5 /* ImageHelper.swift */; };
 		3CE9A60621CBD4B30069FBA5 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE9A60521CBD4B30069FBA5 /* QuestionCell.swift */; };
+		3CE9A60821E35A050069FBA5 /* TableHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE9A60721E35A050069FBA5 /* TableHeaderCell.swift */; };
 		62ED07F44DAEEA1885F4BD25 /* Pods_PrepLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3365FF3D39369D3D8501CD9A /* Pods_PrepLight.framework */; };
 		8C04129E12239954F0FA4722 /* Pods_PrepLightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12EF7DF1DB5FCAABFC36E37 /* Pods_PrepLightTests.framework */; };
 		C25B4D4FC3ED60835537B7B4 /* Pods_PrepLightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F786D86FEAA6A2E19C8CBCBA /* Pods_PrepLightUITests.framework */; };
@@ -73,6 +74,7 @@
 		3CE9A60121C7E7280069FBA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CE9A60321C9006D0069FBA5 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		3CE9A60521CBD4B30069FBA5 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
+		3CE9A60721E35A050069FBA5 /* TableHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderCell.swift; sourceTree = "<group>"; };
 		79CEAAD3A5D1B9864E651C78 /* Pods-PrepLightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepLightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrepLightUITests/Pods-PrepLightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		89E9577D44B4851032707691 /* Pods-PrepLight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepLight.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrepLight/Pods-PrepLight.release.xcconfig"; sourceTree = "<group>"; };
 		A12EF7DF1DB5FCAABFC36E37 /* Pods_PrepLightTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrepLightTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,22 +136,23 @@
 		3C35ACB321C2956700D07921 /* PrepLight */ = {
 			isa = PBXGroup;
 			children = (
-				3C35ACB421C2956700D07921 /* AppDelegate.swift */,
-				3C35ACB621C2956700D07921 /* HomeViewController.swift */,
-				3C0313FC21C2A9B800E5748A /* ListViewController.swift */,
-				3C03140221C3DDA300E5748A /* AssignmentCell.swift */,
-				3CE9A60521CBD4B30069FBA5 /* QuestionCell.swift */,
-				3C03140021C3CE8100E5748A /* RoleViewController.swift */,
-				3C0313FE21C3B96000E5748A /* Role.swift */,
-				3C03140421C7A9D500E5748A /* ConsultantViewController.swift */,
-				3C03140621C7ADC600E5748A /* ClientViewController.swift */,
-				3C03140821C7AE9900E5748A /* RefereeViewController.swift */,
-				3CE9A60321C9006D0069FBA5 /* ImageHelper.swift */,
-				3C35ACB821C2956700D07921 /* Main.storyboard */,
-				3C35ACBB21C2956700D07921 /* Assets.xcassets */,
-				3C35ACBD21C2956700D07921 /* LaunchScreen.storyboard */,
 				3CE9A60121C7E7280069FBA5 /* GoogleService-Info.plist */,
 				3C35ACC021C2956700D07921 /* Info.plist */,
+				3C35ACB421C2956700D07921 /* AppDelegate.swift */,
+				3C03140221C3DDA300E5748A /* AssignmentCell.swift */,
+				3C03140621C7ADC600E5748A /* ClientViewController.swift */,
+				3C03140421C7A9D500E5748A /* ConsultantViewController.swift */,
+				3C35ACB621C2956700D07921 /* HomeViewController.swift */,
+				3CE9A60321C9006D0069FBA5 /* ImageHelper.swift */,
+				3C0313FC21C2A9B800E5748A /* ListViewController.swift */,
+				3CE9A60521CBD4B30069FBA5 /* QuestionCell.swift */,
+				3C03140821C7AE9900E5748A /* RefereeViewController.swift */,
+				3C0313FE21C3B96000E5748A /* Role.swift */,
+				3C03140021C3CE8100E5748A /* RoleViewController.swift */,
+				3CE9A60721E35A050069FBA5 /* TableHeaderCell.swift */,
+				3C35ACBB21C2956700D07921 /* Assets.xcassets */,
+				3C35ACBD21C2956700D07921 /* LaunchScreen.storyboard */,
+				3C35ACB821C2956700D07921 /* Main.storyboard */,
 			);
 			path = PrepLight;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				3C35ACB521C2956700D07921 /* AppDelegate.swift in Sources */,
 				3CE9A60621CBD4B30069FBA5 /* QuestionCell.swift in Sources */,
 				3C0313FD21C2A9B800E5748A /* ListViewController.swift in Sources */,
+				3CE9A60821E35A050069FBA5 /* TableHeaderCell.swift in Sources */,
 				3C03140921C7AE9900E5748A /* RefereeViewController.swift in Sources */,
 				3C0313FF21C3B96000E5748A /* Role.swift in Sources */,
 			);

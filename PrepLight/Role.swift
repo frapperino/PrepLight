@@ -40,7 +40,7 @@ struct Role {
             self.questions = roleQuestions
         }
         
-        if let roleReminders = assignment.value(forKey: "reminders") as? NSDictionary{
+        if let roleReminders = assignment.value(forKey: "reminder") as? NSDictionary{
             self.reminders = roleReminders
         }
         

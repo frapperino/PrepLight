@@ -33,6 +33,7 @@ class ClientViewController: UIViewController, UITableViewDelegate, UITableViewDa
         questionTable.dataSource = self
         questionTable.delegate = self
         questionTable.register(QuestionCell.self, forCellReuseIdentifier: "questionCell")
+        questionTable.register(TableHeaderCell.self, forCellReuseIdentifier: "tableHeaderCell")
         questionTable.allowsSelection = false
         questionTable.separatorStyle = .none
         
@@ -49,33 +50,36 @@ class ClientViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.count
+        return questions.count+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! QuestionCell
-        cell.question.text = questions[indexPath.row]
-        
-        cell.contentView.setNeedsLayout()
-        cell.contentView.layoutIfNeeded()
-        
-        return cell
+        if indexPath.row == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tableHeaderCell", for: indexPath) as! TableHeaderCell
+            cell.headerLabel.text = "Questions"
+            
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! QuestionCell
+            cell.question.text = questions[indexPath.row-1]
+            
+            cell.contentView.setNeedsLayout()
+            cell.contentView.layoutIfNeeded()
+            
+            return cell
+        }
     }
     
     func setupView(){
         self.navigationItem.title = "Client"
         
-        view.addSubview(titleLabel)
         view.addSubview(questionTable)
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
         
-        questionTable.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        questionTable.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
         questionTable.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         questionTable.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         questionTable.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
-        
+  
     }
     
 }
