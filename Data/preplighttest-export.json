@@ -1,0 +1,376 @@
+{
+  "assignments" : {
+    "gergreerw" : {
+      "checklist" : {
+        "esffs" : "Nämner Netlight som en kunskapskälla"
+      },
+      "company" : "Netflix",
+      "content" : {
+        "checklists" : {
+          "checklist1" : {
+            "bullets" : {
+              "bullet1" : "Du har 3 års erfarenhet som produktägare",
+              "bullet2" : "Du har minst 1 års erfarenhet som produktägare i utvecklingsprojekt"
+            },
+            "title" : "Krav"
+          },
+          "checklist2" : {
+            "bullets" : {
+              "bullet1" : "Prioritera backlogen",
+              "bullet2" : "Kommunicera krav med stakeholders och utvecklare",
+              "bullet3" : "Planera uppkommande sprints"
+            },
+            "title" : "Ansvar"
+          }
+        },
+        "outro" : "Är du vår nya produktägare? Ansök idag!",
+        "paragraphs" : {
+          "paragraph1" : "Netflix strävar efter att lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+          "paragraph2" : "I vårt nya team söker vi ny en produktägare som lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum "
+        },
+        "tags" : {
+          "tag1" : "Product owner",
+          "tag2" : "Agile",
+          "tag3" : "Scrum",
+          "tag4" : "Backlog",
+          "tag5" : "Stakeholder",
+          "tag6" : "Leader",
+          "tag7" : "Communication"
+        }
+      },
+      "imageName" : "netflix.png",
+      "questions" : {
+        "fewdw" : "Har du jobbat som PO tidigare?",
+        "gvewaf" : "I hur många project?",
+        "vwavw" : "En väldigt lång fråga, lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
+      },
+      "reminder" : {
+        "fewgrw" : "Presentera kort dig själv",
+        "fwefw" : "Nämn Netlight som en extra resurs"
+      },
+      "title" : "Product owner"
+    },
+    "gfawewew" : {
+      "checklist" : {
+        "esffs" : "Nämner Netlight som en kunskapskälla"
+      },
+      "company" : "Lifesum",
+      "content" : {
+        "checklists" : {
+          "checklist1" : {
+            "bullets" : {
+              "bullet1" : "Du har 3 års erfarenhet som produktägare",
+              "bullet2" : "Du har minst 1 års erfarenhet som produktägare i utvecklingsprojekt"
+            },
+            "title" : "Krav"
+          },
+          "checklist2" : {
+            "bullets" : {
+              "bullet1" : "Prioritera backlogen",
+              "bullet2" : "Kommunicera krav med stakeholders och utvecklare",
+              "bullet3" : "Planera uppkommande sprints"
+            },
+            "title" : "Ansvar"
+          }
+        },
+        "outro" : "Är du vår nya produktägare? Ansök idag!",
+        "paragraphs" : {
+          "paragraph1" : "Netflix strävar efter att lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+          "paragraph2" : "I vårt nya team söker vi ny en produktägare som lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum "
+        },
+        "tags" : {
+          "tag1" : "Product owner",
+          "tag2" : "Agile",
+          "tag3" : "Scrum",
+          "tag4" : "Backlog",
+          "tag5" : "Stakeholder"
+        }
+      },
+      "imageName" : "lifesum.png",
+      "questions" : {
+        "fewdw" : "Har du jobbat som PO tidigare?",
+        "gvewaf" : "Vad heter du?"
+      },
+      "reminder" : {
+        "fwefw" : "Nämn Netlight som en extra resurs"
+      },
+      "title" : "Product owner"
+    },
+    "gfwdcasx" : {
+      "checklist" : {
+        "esffs" : "Nämner Netlight som en kunskapskälla"
+      },
+      "company" : "Netflix",
+      "content" : {
+        "checklists" : {
+          "checklist1" : {
+            "bullets" : {
+              "bullet1" : "Du har 3 års erfarenhet som produktägare",
+              "bullet2" : "Du har minst 1 års erfarenhet som produktägare i utvecklingsprojekt"
+            },
+            "title" : "Krav"
+          },
+          "checklist2" : {
+            "bullets" : {
+              "bullet1" : "Prioritera backlogen",
+              "bullet2" : "Kommunicera krav med stakeholders och utvecklare",
+              "bullet3" : "Planera uppkommande sprints"
+            },
+            "title" : "Ansvar"
+          }
+        },
+        "outro" : "Är du vår nya produktägare? Ansök idag!",
+        "paragraphs" : {
+          "paragraph1" : "Netflix strävar efter att lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+          "paragraph2" : "I vårt nya team söker vi ny en produktägare som lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum "
+        },
+        "tags" : {
+          "tag1" : "Product owner",
+          "tag2" : "Agile",
+          "tag3" : "Scrum",
+          "tag4" : "Backlog",
+          "tag5" : "Stakeholder"
+        }
+      },
+      "imageName" : "netflix.png",
+      "questions" : {
+        "fewdw" : "Har du jobbat som PO tidigare?",
+        "gvewaf" : "Vad heter du?"
+      },
+      "reminder" : {
+        "fwefw" : "Nämn Netlight som en extra resurs"
+      },
+      "title" : "Product owner"
+    },
+    "graewfwea" : {
+      "checklist" : {
+        "esffs" : "Nämner Netlight som en kunskapskälla"
+      },
+      "company" : "Spotify",
+      "content" : {
+        "checklists" : {
+          "checklist1" : {
+            "bullets" : {
+              "bullet1" : "Du har 3 års erfarenhet som produktägare",
+              "bullet2" : "Du har minst 1 års erfarenhet som produktägare i utvecklingsprojekt"
+            },
+            "title" : "Krav"
+          },
+          "checklist2" : {
+            "bullets" : {
+              "bullet1" : "Prioritera backlogen",
+              "bullet2" : "Kommunicera krav med stakeholders och utvecklare",
+              "bullet3" : "Planera uppkommande sprints"
+            },
+            "title" : "Ansvar"
+          }
+        },
+        "outro" : "Är du vår nya produktägare? Ansök idag!",
+        "paragraphs" : {
+          "paragraph1" : "Netflix strävar efter att lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+          "paragraph2" : "I vårt nya team söker vi ny en produktägare som lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum "
+        },
+        "tags" : {
+          "tag1" : "Product owner",
+          "tag2" : "Agile",
+          "tag3" : "Scrum",
+          "tag4" : "Backlog",
+          "tag5" : "Stakeholder"
+        }
+      },
+      "imageName" : "spotify.png",
+      "questions" : {
+        "fewdw" : "Har du jobbat som PO tidigare?",
+        "gvewaf" : "Vad heter du?"
+      },
+      "reminder" : {
+        "fwefw" : "Nämn Netlight som en extra resurs"
+      },
+      "title" : "Product owner"
+    },
+    "greads" : {
+      "checklist" : {
+        "esffs" : "Nämner Netlight som en kunskapskälla"
+      },
+      "company" : "Bonnier",
+      "content" : {
+        "checklists" : {
+          "checklist1" : {
+            "bullets" : {
+              "bullet1" : "Du har 3 års erfarenhet som produktägare",
+              "bullet2" : "Du har minst 1 års erfarenhet som produktägare i utvecklingsprojekt"
+            },
+            "title" : "Krav"
+          },
+          "checklist2" : {
+            "bullets" : {
+              "bullet1" : "Prioritera backlogen",
+              "bullet2" : "Kommunicera krav med stakeholders och utvecklare",
+              "bullet3" : "Planera uppkommande sprints"
+            },
+            "title" : "Ansvar"
+          }
+        },
+        "outro" : "Är du vår nya produktägare? Ansök idag!",
+        "paragraphs" : {
+          "paragraph1" : "Netflix strävar efter att lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+          "paragraph2" : "I vårt nya team söker vi ny en produktägare som lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum "
+        },
+        "tags" : {
+          "tag1" : "Product owner",
+          "tag2" : "Agile",
+          "tag3" : "Scrum",
+          "tag4" : "Backlog",
+          "tag5" : "Stakeholder"
+        }
+      },
+      "imageName" : "",
+      "questions" : {
+        "fewdw" : "Har du jobbat som PO tidigare?",
+        "gvewaf" : "Vad heter du?"
+      },
+      "reminder" : {
+        "fwefw" : "Nämn Netlight som en extra resurs"
+      },
+      "title" : "Product owner"
+    },
+    "ngfbvsda" : {
+      "checklist" : {
+        "esffs" : "Nämner Netlight som en kunskapskälla"
+      },
+      "company" : "Lifesum",
+      "content" : {
+        "checklists" : {
+          "checklist1" : {
+            "bullets" : {
+              "bullet1" : "Du har 3 års erfarenhet som produktägare",
+              "bullet2" : "Du har minst 1 års erfarenhet som produktägare i utvecklingsprojekt"
+            },
+            "title" : "Krav"
+          },
+          "checklist2" : {
+            "bullets" : {
+              "bullet1" : "Prioritera backlogen",
+              "bullet2" : "Kommunicera krav med stakeholders och utvecklare",
+              "bullet3" : "Planera uppkommande sprints"
+            },
+            "title" : "Ansvar"
+          }
+        },
+        "outro" : "Är du vår nya produktägare? Ansök idag!",
+        "paragraphs" : {
+          "paragraph1" : "Netflix strävar efter att lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+          "paragraph2" : "I vårt nya team söker vi ny en produktägare som lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum "
+        },
+        "tags" : {
+          "tag1" : "Product owner",
+          "tag2" : "Agile",
+          "tag3" : "Scrum",
+          "tag4" : "Backlog",
+          "tag5" : "Stakeholder"
+        }
+      },
+      "imageName" : "lifesum.png",
+      "questions" : {
+        "fewdw" : "Har du jobbat som PO tidigare?",
+        "gvewaf" : "Vad heter du?"
+      },
+      "reminder" : {
+        "fwefw" : "Nämn Netlight som en extra resurs"
+      },
+      "title" : "Product owner"
+    },
+    "rbvcsawq" : {
+      "checklist" : {
+        "esffs" : "Nämner Netlight som en kunskapskälla"
+      },
+      "company" : "Spotify",
+      "content" : {
+        "checklists" : {
+          "checklist1" : {
+            "bullets" : {
+              "bullet1" : "Du har 3 års erfarenhet som produktägare",
+              "bullet2" : "Du har minst 1 års erfarenhet som produktägare i utvecklingsprojekt"
+            },
+            "title" : "Krav"
+          },
+          "checklist2" : {
+            "bullets" : {
+              "bullet1" : "Prioritera backlogen",
+              "bullet2" : "Kommunicera krav med stakeholders och utvecklare",
+              "bullet3" : "Planera uppkommande sprints"
+            },
+            "title" : "Ansvar"
+          }
+        },
+        "outro" : "Är du vår nya produktägare? Ansök idag!",
+        "paragraphs" : {
+          "paragraph1" : "Netflix strävar efter att lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+          "paragraph2" : "I vårt nya team söker vi ny en produktägare som lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum "
+        },
+        "tags" : {
+          "tag1" : "Product owner",
+          "tag2" : "Agile",
+          "tag3" : "Scrum",
+          "tag4" : "Backlog",
+          "tag5" : "Stakeholder"
+        }
+      },
+      "imageName" : "spotify.png",
+      "questions" : {
+        "fewdw" : "Har du jobbat som PO tidigare?",
+        "gvewaf" : "Vad heter du?"
+      },
+      "reminder" : {
+        "fwefw" : "Nämn Netlight som en extra resurs"
+      },
+      "title" : "Product owner"
+    },
+    "vfscas" : {
+      "checklist" : {
+        "esffs" : "Nämner Netlight som en kunskapskälla"
+      },
+      "company" : "Netflix",
+      "content" : {
+        "checklists" : {
+          "checklist1" : {
+            "bullets" : {
+              "bullet1" : "Du har 3 års erfarenhet som produktägare",
+              "bullet2" : "Du har minst 1 års erfarenhet som produktägare i utvecklingsprojekt"
+            },
+            "title" : "Krav"
+          },
+          "checklist2" : {
+            "bullets" : {
+              "bullet1" : "Prioritera backlogen",
+              "bullet2" : "Kommunicera krav med stakeholders och utvecklare",
+              "bullet3" : "Planera uppkommande sprints"
+            },
+            "title" : "Ansvar"
+          }
+        },
+        "outro" : "Är du vår nya produktägare? Ansök idag!",
+        "paragraphs" : {
+          "paragraph1" : "Netflix strävar efter att lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+          "paragraph2" : "I vårt nya team söker vi ny en produktägare som lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum "
+        },
+        "tags" : {
+          "tag1" : "Product owner",
+          "tag2" : "Agile",
+          "tag3" : "Scrum",
+          "tag4" : "Backlog",
+          "tag5" : "Stakeholder"
+        }
+      },
+      "imageName" : "netflix.png",
+      "questions" : {
+        "fewdw" : "Har du jobbat som PO tidigare?",
+        "gvewaf" : "Vad heter du?"
+      },
+      "reminder" : {
+        "fwefw" : "Nämn Netlight som en extra resurs"
+      },
+      "title" : "Product owner"
+    }
+  }
+}
